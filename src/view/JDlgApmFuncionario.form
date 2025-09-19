@@ -26,22 +26,22 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTxtNome" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTxtApmNome" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTxtApelido" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTxtApmApelido" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLblApelido" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLblApmApelido" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLblDataNascimento" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jFmtDataNascimento" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                                          <Component id="jLblApmDataNascimento" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jFmtApmDataNascimento" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jPwfSenha" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                                          <Component id="jLblApmSenha" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jPwfApmSenha" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -50,41 +50,41 @@
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLblNivel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCboNivel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jChbAtivo" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLblAtivo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLblApmNivel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCboApmNivel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jChbApmAtivo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLbApmlAtivo" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLblNome" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLblApmNome" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTxtId" min="-2" pref="170" max="-2" attributes="0"/>
+                              <Component id="jTxtApmId" min="-2" pref="170" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                              <Component id="jFmtCpf" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="jFmtApmCpf" min="-2" pref="150" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLblId" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLbApmlId" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
-                              <Component id="jLblCpf" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLblApmCpf" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jBtnIncluir" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBtnApmIncluir" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jBtnAlterar" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBtnApmAlterar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jBtnExcluir3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBtnApmExcluir" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jBtnCancelar" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBtnApmCancelar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jBtnConfirmar" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBtnApmConfirmar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jBtnPesquisar" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBtnApmPesquisar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -96,54 +96,54 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLblId" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLblCpf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLbApmlId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLblApmCpf" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTxtId" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jFmtCpf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTxtApmId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jFmtApmCpf" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jLblNome" min="-2" max="-2" attributes="0"/>
+              <Component id="jLblApmNome" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTxtNome" min="-2" max="-2" attributes="0"/>
+              <Component id="jTxtApmNome" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLblNivel" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLblApmNivel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                      <Component id="jCboNivel" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCboApmNivel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLblAtivo" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLbApmlAtivo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jChbAtivo" min="-2" max="-2" attributes="0"/>
+                      <Component id="jChbApmAtivo" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLblApmSenha" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPwfSenha" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPwfApmSenha" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLblApelido" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLblApmApelido" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="jTxtApelido" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTxtApmApelido" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLblDataNascimento" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLblApmDataNascimento" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jFmtDataNascimento" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFmtApmDataNascimento" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jBtnIncluir" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jBtnAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jBtnExcluir3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jBtnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jBtnConfirmar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="jBtnPesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnApmIncluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnApmAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnApmExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnApmCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnApmConfirmar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="jBtnApmPesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -151,16 +151,16 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLblNome">
+    <Component class="javax.swing.JLabel" name="jLblApmNome">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nome"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jChbAtivo">
+    <Component class="javax.swing.JCheckBox" name="jChbApmAtivo">
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFmtDataNascimento">
+    <Component class="javax.swing.JFormattedTextField" name="jFmtApmDataNascimento">
     </Component>
-    <Component class="javax.swing.JComboBox" name="jCboNivel">
+    <Component class="javax.swing.JComboBox" name="jCboApmNivel">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -175,104 +175,122 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLblCpf">
+    <Component class="javax.swing.JLabel" name="jLblApmCpf">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cpf"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLblApelido">
+    <Component class="javax.swing.JLabel" name="jLblApmApelido">
       <Properties>
         <Property name="text" type="java.lang.String" value="Apelido"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFmtCpf">
+    <Component class="javax.swing.JFormattedTextField" name="jFmtApmCpf">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtId">
+    <Component class="javax.swing.JTextField" name="jTxtApmId">
     </Component>
-    <Component class="javax.swing.JPasswordField" name="jPwfSenha">
+    <Component class="javax.swing.JPasswordField" name="jPwfApmSenha">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtNome">
+    <Component class="javax.swing.JTextField" name="jTxtApmNome">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtNomeActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtApmNomeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="jLblApmSenha">
       <Properties>
         <Property name="text" type="java.lang.String" value="Senha"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtApelido">
+    <Component class="javax.swing.JTextField" name="jTxtApmApelido">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtApelidoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtApmApelidoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLblNivel">
+    <Component class="javax.swing.JLabel" name="jLblApmNivel">
       <Properties>
         <Property name="text" type="java.lang.String" value="N&#xed;vel"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLblId">
+    <Component class="javax.swing.JLabel" name="jLbApmlId">
       <Properties>
         <Property name="text" type="java.lang.String" value="Id"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLblAtivo">
+    <Component class="javax.swing.JLabel" name="jLbApmlAtivo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ativo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLblDataNascimento">
+    <Component class="javax.swing.JLabel" name="jLblApmDataNascimento">
       <Properties>
         <Property name="text" type="java.lang.String" value="Data De Nascimento"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jBtnAlterar">
+    <Component class="javax.swing.JButton" name="jBtnApmAlterar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/alterar.png"/>
+          <Image iconType="3" name="/img/alterar.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Alterar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnApmAlterarActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jBtnExcluir3">
+    <Component class="javax.swing.JButton" name="jBtnApmExcluir">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Excluir.png"/>
+          <Image iconType="3" name="/img/Excluir_1.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnApmExcluirActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jBtnCancelar">
+    <Component class="javax.swing.JButton" name="jBtnApmCancelar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/cancelar.png"/>
+          <Image iconType="3" name="/img/cancelar_1.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnApmCancelarActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jBtnConfirmar">
+    <Component class="javax.swing.JButton" name="jBtnApmConfirmar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/ok.png"/>
+          <Image iconType="3" name="/img/confirmar.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Confirmar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnApmConfirmarActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jBtnPesquisar">
+    <Component class="javax.swing.JButton" name="jBtnApmPesquisar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/pesquisar.png"/>
+          <Image iconType="3" name="/img/pesquisar.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Pesquisar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnApmPesquisarActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jBtnIncluir">
+    <Component class="javax.swing.JButton" name="jBtnApmIncluir">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/incluir.png"/>
+          <Image iconType="3" name="/img/ok_1.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Incluir"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnApmIncluirActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
