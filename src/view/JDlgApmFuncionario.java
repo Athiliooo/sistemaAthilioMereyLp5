@@ -6,7 +6,7 @@
 
 package view;
 
-import com.sun.corba.se.spi.logging.CORBALogDomains;
+import bean.ApmFuncionario;
 import tools.Util;
 
 /**
@@ -30,6 +30,38 @@ public class JDlgApmFuncionario extends javax.swing.JDialog {
                 jFmtApmCpf, jFmtApmDataNascimento, jCboApmNivel, 
                 jChbApmAtivo, jPwfApmSenha);
     }   
+    
+    public void beanView(ApmFuncionario apmFuncionario){
+        jTxtApmId.setText(Util.intToStr(apmFuncionario.getApmIdFuncionario()));
+        jTxtApmNome.setText(apmFuncionario.getApmNome());
+        jTxtApmApelido.setText(apmFuncionario.getApmApelido());
+        jFmtApmCpf.setText(apmFuncionario.getApmCpf());
+        jFmtApmDataNascimento.setText(Util.dateToStr(apmFuncionario.getApmDataNascimento()));
+        jCboApmNivel.setSelectedIndex(apmFuncionario.getApmNivel());
+        jPwfApmSenha.setText(apmFuncionario.getApmSenha());
+        if( apmFuncionario.getApmAtivo().equals("S") == true){
+            jChbApmAtivo.setSelected(true);
+        } else {
+            jChbApmAtivo.setSelected(false);
+        }
+    }
+    
+    public ApmFuncionario viewBean(){
+        ApmFuncionario apmFuncionario = new ApmFuncionario();
+        int apmId = Util.strToInt(jTxtApmId.getText());
+        apmFuncionario.setApmNome(jTxtApmNome.getText());
+        apmFuncionario.setApmApelido(jTxtApmApelido.getText());
+        apmFuncionario.setApmCpf(jFmtApmCpf.getText());
+        apmFuncionario.setApmDataNascimento(Util.strToDate(jFmtApmDataNascimento.getText()));
+        apmFuncionario.setApmNivel(jCboApmNivel.getSelectedIndex());
+        apmFuncionario.setApmSenha(jPwfApmSenha.getText());
+        if (jChbApmAtivo.isSelected() == true){
+            apmFuncionario.setApmAtivo("S");
+        } else {
+            apmFuncionario.setApmAtivo("N");
+        }
+        return null;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

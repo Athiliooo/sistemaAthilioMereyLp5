@@ -24,12 +24,12 @@ public class ApmUsuarios  implements java.io.Serializable {
      private String apmDataNascimento;
      private String apmSenha;
      private int apmNivel;
-     private char apmAtivo;
+     private String apmAtivo;
 
     public ApmUsuarios() {
     }
 
-    public ApmUsuarios(int apmIdUsuario, String apmNome, String apmApelido, String apmCpf, String apmDataNascimento, String apmSenha, int apmNivel, char apmAtivo) {
+    public ApmUsuarios(int apmIdUsuario, String apmNome, String apmApelido, String apmCpf, String apmDataNascimento, String apmSenha, int apmNivel, String apmAtivo) {
        this.apmIdUsuario = apmIdUsuario;
        this.apmNome = apmNome;
        this.apmApelido = apmApelido;
@@ -114,11 +114,11 @@ public class ApmUsuarios  implements java.io.Serializable {
 
     
     @Column(name="apm_ativo", nullable=false, length=1)
-    public char getApmAtivo() {
+    public String getApmAtivo() {
         return this.apmAtivo;
     }
     
-    public void setApmAtivo(char apmAtivo) {
+    public void setApmAtivo(String apmAtivo) {
         this.apmAtivo = apmAtivo;
     }
 

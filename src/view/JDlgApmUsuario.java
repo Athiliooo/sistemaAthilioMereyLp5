@@ -6,6 +6,8 @@
 
 package view;
 
+import bean.ApmUsuarios;
+import bean.ApmUsuarios;
 import tools.Util;
 
 /**
@@ -29,6 +31,38 @@ public class JDlgApmUsuario extends javax.swing.JDialog {
                                 jFmtApmCpf, jFmtApmDataNasc, jPswApmSenha,
                             jCboApmNivel, jChbApmAtivo);
     }
+ 
+    public void beanView(ApmUsuarios apmUsuarios){
+        jTxtApmId.setText(Util.intToStr(apmUsuarios.getApmIdUsuario()));
+        jTxtApmNome.setText(apmUsuarios.getApmNome());
+        jTxtApmApelido.setText(apmUsuarios.getApmApelido());
+        jFmtApmCpf.setText(apmUsuarios.getApmCpf());
+        jFmtApmDataNasc.setText(Util.dateToStr(apmUsuarios.getApmDataNascimento()));
+        jCboApmNivel.setSelectedIndex(apmUsuarios.getApmNivel());
+        jPswApmSenha.setText(apmUsuarios.getApmSenha());
+        if( apmUsuarios.getApmAtivo().equals("S") == true){
+            jChbApmAtivo.setSelected(true);
+        } else {
+            jChbApmAtivo.setSelected(false);
+        }
+    }
+    
+    public ApmUsuarios viewBean(){
+        ApmUsuarios apmUsuarios = new ApmUsuarios();
+        int apmId = Util.strToInt(jTxtApmId.getText());
+        apmUsuarios.setApmNome(jTxtApmNome.getText());
+        apmUsuarios.setApmApelido(jTxtApmApelido.getText());
+        apmUsuarios.setApmCpf(jFmtApmCpf.getText());
+        apmUsuarios.setApmDataNascimento(Util.strToDate(jFmtApmDataNasc.getText()));
+        apmUsuarios.setApmNivel(jCboApmNivel.getSelectedIndex());
+        apmUsuarios.setApmSenha(jPswApmSenha.getText());
+        if (jChbApmAtivo.isSelected() == true){
+            apmUsuarios.setApmAtivo("S");
+        } else {
+            apmUsuarios.setApmAtivo("N");
+        }
+        return null;
+    }    
 
     /**
      * This method is called from within the constructor to initialize the form.

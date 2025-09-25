@@ -24,12 +24,12 @@ public class JDlgApmCliente extends javax.swing.JDialog {
         setTitle("cadastro de Cliente");
         setLocationRelativeTo(null);
         Util.habilitar(false, jTxtApmId, jTxtApmNome, jTxtApmApelido,
-                jTxtApmEmail, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
+                jTxtApmEmail, jPwsSenha, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
                 jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
                 jFmtApmDataNascimento, jFmtApmRg, jCboApmSexo, jChbApmAtivo,
                 jBtnApmConfirmar, jBtnApmCancelar);
         Util.limpar(jTxtApmId, jTxtApmNome, jTxtApmApelido,
-                jTxtApmEmail, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
+                jTxtApmEmail, jPwsSenha, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
                 jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
                 jFmtApmDataNascimento, jFmtApmRg, jCboApmSexo, jChbApmAtivo);
     }
@@ -39,12 +39,46 @@ public class JDlgApmCliente extends javax.swing.JDialog {
         jTxtApmNome.setText(apmCliente.getApmNome());
         jTxtApmApelido.setText(apmCliente.getApmApelido());
         jTxtApmEmail.setText(apmCliente.getApmEmail());
+        jPwsSenha.setText(apmCliente.getApmSenha());
         jTxtApmCelular.setText(apmCliente.getApmCelular());
         jTxtApmTelefone.setText(apmCliente.getApmTelefone());
         jTxtCep.setText(apmCliente.getApmCep());
         jTxtApmBairro.setText(apmCliente.getApmBairro());
         jTxtApmRua.setText(apmCliente.getApmRua());;
         jFmtApmCpf.setText((apmCliente.getApmCpf()));
+        jFmtApmDataNascimento.setText(Util.dateToStr(apmCliente.getApmDataNascimento()));
+        jFmtApmRg.setText(apmCliente.getApmRg());
+        jCboApmSexo.setSelectedIndex(apmCliente.getApmSexo());
+        if( apmCliente.getApmAtivo().equals("S") == true){
+            jChbApmAtivo.setSelected(true);
+        } else {
+            jChbApmAtivo.setSelected(false);
+        }
+    }
+    
+    public ApmCliente viewBean(){
+        ApmCliente apmCliente = new ApmCliente();
+        int apmId = Util.strToInt(jTxtApmId.getText());
+        apmCliente.setApmNome(jTxtApmNome.getText());
+        apmCliente.setApmApelido(jTxtApmApelido.getText());
+        apmCliente.setApmEmail(jTxtApmEmail.getText());
+        apmCliente.setApmSenha(jPwsSenha.getText());
+        apmCliente.setApmCelular(jTxtApmCelular.getText());
+        apmCliente.setApmTelefone(jTxtApmTelefone.getText());
+        apmCliente.setApmCep(jTxtCep.getText());
+        apmCliente.setApmBairro(jTxtApmBairro.getText());
+        apmCliente.setApmRua(jTxtApmRua.getText());
+        apmCliente.setApmCpf(jFmtApmCpf.getText());
+        apmCliente.setApmDataNascimento(Util.strToDate(jFmtApmDataNascimento.getText()));
+        apmCliente.setApmRg(jFmtApmRg.getText());
+        apmCliente.setApmSexo((char) jCboApmSexo.getSelectedIndex());
+        if (jChbApmAtivo.isSelected() == true){
+            apmCliente.setApmAtivo("S");
+        } else {
+            apmCliente.setApmAtivo("N");
+        }
+        return null;
+        
     }
 
     /**
@@ -90,6 +124,8 @@ public class JDlgApmCliente extends javax.swing.JDialog {
         jChbApmAtivo = new javax.swing.JCheckBox();
         jLblApmEmail = new javax.swing.JLabel();
         jBtnApmAlterar = new javax.swing.JButton();
+        jLblSenha = new javax.swing.JLabel();
+        jPwsSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -195,6 +231,8 @@ public class JDlgApmCliente extends javax.swing.JDialog {
             }
         });
 
+        jLblSenha.setText("Senha");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -210,23 +248,33 @@ public class JDlgApmCliente extends javax.swing.JDialog {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTxtApmApelido)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLblApmApelido)
-                                            .addComponent(jTxtApmEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                        .addComponent(jLblApmApelido)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTxtApmEmail)
+                                        .addGap(253, 253, 253)))
                                 .addGap(19, 19, 19))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLblApmDataNascimento)
-                                    .addComponent(jFmtApmDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFmtApmCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLblApmCpf))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLblApmRg)
-                                    .addComponent(jFmtApmRg, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jPwsSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLblApmEmail)
+                                                .addGap(270, 270, 270)
+                                                .addComponent(jLblSenha))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLblApmDataNascimento)
+                                                    .addComponent(jFmtApmDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jFmtApmCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLblApmCpf))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLblApmRg)
+                                            .addComponent(jFmtApmRg, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCboApmSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -265,9 +313,6 @@ public class JDlgApmCliente extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTxtApmCelular)
                                 .addContainerGap())))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLblApmEmail)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLblApmRua)
@@ -323,9 +368,13 @@ public class JDlgApmCliente extends javax.swing.JDialog {
                                     .addComponent(jFmtApmCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jFmtApmRg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(20, 20, 20)
-                .addComponent(jLblApmEmail)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLblApmEmail)
+                    .addComponent(jLblSenha))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTxtApmEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTxtApmEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPwsSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLblApmTelefone)
@@ -363,13 +412,13 @@ public class JDlgApmCliente extends javax.swing.JDialog {
     private void jBtnApmConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmConfirmarActionPerformed
         // TODO add your handling code here:
         Util.habilitar(false, jTxtApmId, jTxtApmNome, jTxtApmApelido,
-                jTxtApmEmail, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
+                jTxtApmEmail, jPwsSenha, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
                 jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
                 jFmtApmDataNascimento, jFmtApmRg, jCboApmSexo, jChbApmAtivo,
                 jBtnApmConfirmar, jBtnApmCancelar);
         Util.habilitar(true, jBtnApmIncluir, jBtnApmAlterar, jBtnApmExcluir, jBtnApmPesquisar);
         Util.limpar(jTxtApmId, jTxtApmNome, jTxtApmApelido,
-                jTxtApmEmail, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
+                jTxtApmEmail, jPwsSenha, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
                 jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
                 jFmtApmDataNascimento, jFmtApmRg, jCboApmSexo, jChbApmAtivo);
     }//GEN-LAST:event_jBtnApmConfirmarActionPerformed
@@ -386,7 +435,7 @@ public class JDlgApmCliente extends javax.swing.JDialog {
     private void jBtnApmCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmCancelarActionPerformed
         // TODO add your handling code here:
         Util.habilitar(false, jTxtApmId, jTxtApmNome, jTxtApmApelido,
-                jTxtApmEmail, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
+                jTxtApmEmail, jPwsSenha, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
                 jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
                 jFmtApmDataNascimento, jFmtApmRg, jCboApmSexo, jChbApmAtivo,
                 jBtnApmConfirmar, jBtnApmCancelar);
@@ -414,13 +463,13 @@ public class JDlgApmCliente extends javax.swing.JDialog {
     private void jBtnApmIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmIncluirActionPerformed
         // TODO add your handling code here:
         Util.habilitar(true, jTxtApmId, jTxtApmNome, jTxtApmApelido,
-                jTxtApmEmail, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
+                jTxtApmEmail, jPwsSenha, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
                 jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
                 jFmtApmDataNascimento, jFmtApmRg, jCboApmSexo, jChbApmAtivo,
                 jBtnApmConfirmar, jBtnApmCancelar);
         Util.habilitar(false, jBtnApmIncluir, jBtnApmAlterar, jBtnApmExcluir, jBtnApmPesquisar);
         Util.limpar(jTxtApmId, jTxtApmNome, jTxtApmApelido,
-                jTxtApmEmail, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
+                jTxtApmEmail, jPwsSenha, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
                 jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
                 jFmtApmDataNascimento, jFmtApmRg, jCboApmSexo, jChbApmAtivo);
     }//GEN-LAST:event_jBtnApmIncluirActionPerformed
@@ -428,7 +477,7 @@ public class JDlgApmCliente extends javax.swing.JDialog {
     private void jBtnApmAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmAlterarActionPerformed
         // TODO add your handling code here:
         Util.habilitar(true, jTxtApmId, jTxtApmNome, jTxtApmApelido,
-                jTxtApmEmail, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
+                jTxtApmEmail, jPwsSenha, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
                 jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
                 jFmtApmDataNascimento, jFmtApmRg, jCboApmSexo, jChbApmAtivo,
                 jBtnApmConfirmar, jBtnApmCancelar);
@@ -503,6 +552,8 @@ public class JDlgApmCliente extends javax.swing.JDialog {
     private javax.swing.JLabel jLblApmRua;
     private javax.swing.JLabel jLblApmSexo;
     private javax.swing.JLabel jLblApmTelefone;
+    private javax.swing.JLabel jLblSenha;
+    private javax.swing.JPasswordField jPwsSenha;
     private javax.swing.JTextField jTxtApmApelido;
     private javax.swing.JTextField jTxtApmBairro;
     private javax.swing.JTextField jTxtApmCelular;

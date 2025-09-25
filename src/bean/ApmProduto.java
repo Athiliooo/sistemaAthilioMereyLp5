@@ -27,7 +27,7 @@ public class ApmProduto  implements java.io.Serializable {
      private int apmIdProduto;
      private String apmNome;
      private String apmMarca;
-     private float apmValor;
+     private double apmValor;
      private String apmTamanho;
      private Date apmDataValidade;
      private String apmTipo;
@@ -36,7 +36,7 @@ public class ApmProduto  implements java.io.Serializable {
     }
 
 	
-    public ApmProduto(int apmIdProduto, String apmNome, String apmMarca, float apmValor, String apmTamanho, Date apmDataValidade, String apmTipo) {
+    public ApmProduto(int apmIdProduto, String apmNome, String apmMarca, double apmValor, String apmTamanho, Date apmDataValidade, String apmTipo) {
         this.apmIdProduto = apmIdProduto;
         this.apmNome = apmNome;
         this.apmMarca = apmMarca;
@@ -45,7 +45,7 @@ public class ApmProduto  implements java.io.Serializable {
         this.apmDataValidade = apmDataValidade;
         this.apmTipo = apmTipo;
     }
-    public ApmProduto(int apmIdProduto, String apmNome, String apmMarca, float apmValor, String apmTamanho, Date apmDataValidade, String apmTipo, Set apmVendases) {
+    public ApmProduto(int apmIdProduto, String apmNome, String apmMarca, double apmValor, String apmTamanho, Date apmDataValidade, String apmTipo, Set apmVendases) {
        this.apmIdProduto = apmIdProduto;
        this.apmNome = apmNome;
        this.apmMarca = apmMarca;
@@ -90,11 +90,11 @@ public class ApmProduto  implements java.io.Serializable {
 
     
     @Column(name="apm_valor", nullable=false, precision=12, scale=0)
-    public float getApmValor() {
+    public double getApmValor() {
         return this.apmValor;
     }
     
-    public void setApmValor(float apmValor) {
+    public void setApmValor(double apmValor) {
         this.apmValor = apmValor;
     }
 

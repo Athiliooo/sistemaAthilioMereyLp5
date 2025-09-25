@@ -6,6 +6,7 @@
 
 package view;
 
+import bean.ApmProduto;
 import tools.Util;
 
 /**
@@ -28,7 +29,28 @@ public class JDlgApmProduto extends javax.swing.JDialog {
         Util.limpar(jTxtApmId, jTxtApmNome, jTxtApmMarca,
                 jTxtApmTamanho, jTxtApmPreco, jTxtApmTipo, jFmtApmDataValidade);
     }
-
+    
+    public void beanView(ApmProduto apmProduto){
+        jTxtApmId.setText(Util.intToStr(apmProduto.getApmIdProduto()));
+        jTxtApmNome.setText(apmProduto.getApmNome());
+        jTxtApmMarca.setText(apmProduto.getApmMarca());
+        jTxtApmTamanho.setText(apmProduto.getApmTamanho());
+        jTxtApmPreco.setText(Util.doubleToStr(apmProduto.getApmValor()));
+        jTxtApmTipo.setText(apmProduto.getApmTipo());
+        jFmtApmDataValidade.setText(Util.dateToStr(apmProduto.getApmDataValidade()));     
+    }
+    
+    public void viewBean(){
+        ApmProduto apmProduto = new ApmProduto();
+        int apmId = Util.strToInt((jTxtApmId.getText()));
+        apmProduto.setApmNome(jTxtApmNome.getText());
+        apmProduto.setApmMarca(jTxtApmMarca.getText());
+        apmProduto.setApmTamanho(jTxtApmTamanho.getText());
+        apmProduto.setApmValor(Util.strToDouble(jTxtApmPreco.getText()));
+        apmProduto.setApmTipo(jTxtApmTipo.getText());
+        apmProduto.setApmDataValidade(Util.strToDate(jFmtApmDataValidade.getText()));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
