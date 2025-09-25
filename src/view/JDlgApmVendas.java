@@ -6,6 +6,7 @@
 
 package view;
 
+import dao.VendasDAO;
 import tools.Util;
 
 /**
@@ -25,6 +26,8 @@ public class JDlgApmVendas extends javax.swing.JDialog {
         Util.habilitar(false, jTxtApmIdVenda, jTxtApmIdCliente, jTxtApmIdProduto, jBtnApmConfirmar, jBtnApmCancelar);
         Util.limpar(jTxtApmIdVenda, jTxtApmIdCliente, jTxtApmIdProduto);
     }
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,7 +77,7 @@ public class JDlgApmVendas extends javax.swing.JDialog {
             }
         });
 
-        jBtnApmIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/incluir.png"))); // NOI18N
+        jBtnApmIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/incluir.png"))); // NOI18N
         jBtnApmIncluir.setText("Incluir");
         jBtnApmIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,7 +85,7 @@ public class JDlgApmVendas extends javax.swing.JDialog {
             }
         });
 
-        jBtnApmAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/alterar.png"))); // NOI18N
+        jBtnApmAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/alterar.png"))); // NOI18N
         jBtnApmAlterar.setText("Alterar");
         jBtnApmAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +93,7 @@ public class JDlgApmVendas extends javax.swing.JDialog {
             }
         });
 
-        jBtnApmConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ok.png"))); // NOI18N
+        jBtnApmConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ok_1.png"))); // NOI18N
         jBtnApmConfirmar.setText("Confirmar");
         jBtnApmConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +101,7 @@ public class JDlgApmVendas extends javax.swing.JDialog {
             }
         });
 
-        jBtnApmExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Excluir.png"))); // NOI18N
+        jBtnApmExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Excluir_1.png"))); // NOI18N
         jBtnApmExcluir.setText("Excluir");
         jBtnApmExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +109,7 @@ public class JDlgApmVendas extends javax.swing.JDialog {
             }
         });
 
-        jBtnApmCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
+        jBtnApmCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancelar.png"))); // NOI18N
         jBtnApmCancelar.setText("Cancelar");
         jBtnApmCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,7 +117,7 @@ public class JDlgApmVendas extends javax.swing.JDialog {
             }
         });
 
-        jBtnApmPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pesquisar.png"))); // NOI18N
+        jBtnApmPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pesquisar_1.png"))); // NOI18N
         jBtnApmPesquisar.setText("Pesquisar");
         jBtnApmPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +141,7 @@ public class JDlgApmVendas extends javax.swing.JDialog {
                 .addComponent(jBtnApmConfirmar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBtnApmPesquisar)
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,16 +197,25 @@ public class JDlgApmVendas extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnApmIncluirActionPerformed
 
     private void jBtnApmAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmAlterarActionPerformed
-        // TODO add your handling code here:
+        Util.habilitar(true, jTxtApmIdVenda, jTxtApmIdCliente, jTxtApmIdProduto,
+            jBtnApmConfirmar, jBtnApmCancelar);
+        Util.habilitar(false, jBtnApmIncluir, jBtnApmAlterar, jBtnApmExcluir, jBtnApmPesquisar);
     }//GEN-LAST:event_jBtnApmAlterarActionPerformed
 
     private void jBtnApmConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmConfirmarActionPerformed
         // TODO add your handling code here:
+        Util.habilitar(false, jTxtApmIdVenda, jTxtApmIdCliente, jTxtApmIdProduto,
+            jBtnApmConfirmar, jBtnApmCancelar);
+        Util.habilitar(true, jBtnApmIncluir, jBtnApmAlterar, jBtnApmExcluir, jBtnApmPesquisar);
+        Util.limpar(jTxtApmIdVenda, jTxtApmIdCliente, jTxtApmIdProduto);
     }//GEN-LAST:event_jBtnApmConfirmarActionPerformed
 
     private void jBtnApmExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmExcluirActionPerformed
         // TODO add your handling code here:
-        Util.pergunta("Deseja mesmo excluir?");
+        if (Util.pergunta("Deseja mesmo excluir?") == true){
+            VendasDAO vendasDAO = new VendasDAO();
+            vendasDAO.delete(viewBean);
+        }
     }//GEN-LAST:event_jBtnApmExcluirActionPerformed
 
     private void jBtnApmCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmCancelarActionPerformed

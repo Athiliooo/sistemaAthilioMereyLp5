@@ -6,6 +6,10 @@
 
 package view;
 
+import bean.ApmFuncionario;
+import dao.FuncionarioDAO;
+import java.util.List;
+
 /**
  *
  * @author win10
@@ -15,10 +19,23 @@ public class JDlgApmFuncionarioPesquisar extends javax.swing.JDialog {
     /**
      * Creates new form jDlgApmFuncionarioPesquisar
      */
+    private JDlgApmFuncionario jDlgApmFuncionario;
+    ControllerFuncionario controllerFuncionario;
+    
     public JDlgApmFuncionarioPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Pesquisar Funcionário");
+        controllerFuncionario = new ControllerFuncionario();
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+        List lista = (List) funcionarioDAO.listAll();
+        controllerFuncionario.setList(lista);
+        jTableApmFuncionario.setModel(controllerFuncionario);
+    }
+    
+    public void setTelaAnterior(JDlgApmFuncionario jDlgApmFuncionario){
+        this.jDlgApmFuncionario = jDlgApmFuncionario;
     }
 
     /**
@@ -85,7 +102,9 @@ public class JDlgApmFuncionarioPesquisar extends javax.swing.JDialog {
 
     private void jBtnApmOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmOkActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        ApmFuncionario apmFuncionario = controllerFuncionario.getBean(jTableApmFuncionario.getSelectedRow());
+        jDlgApmFuncionario.beanView(apmFuncionario);
+        this.setVisible(false);
     }//GEN-LAST:event_jBtnApmOkActionPerformed
 
     /**

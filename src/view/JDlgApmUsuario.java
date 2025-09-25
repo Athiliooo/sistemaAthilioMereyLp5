@@ -8,6 +8,7 @@ package view;
 
 import bean.ApmUsuarios;
 import bean.ApmUsuarios;
+import dao.UsuarioDAO;
 import tools.Util;
 
 /**
@@ -295,7 +296,13 @@ public class JDlgApmUsuario extends javax.swing.JDialog {
 
     private void jBtnApmExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmExcluirActionPerformed
         // TODO add your handling code here:
-        Util.pergunta("Deseja mesmo excluir?");
+        if (Util.pergunta("Deseja mesmo excluir?") == true){
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            usuarioDAO.delete( viewBean() );
+        }
+        Util.limpar(jTxtApmId, jTxtApmNome, jTxtApmApelido, 
+                    jFmtApmCpf, jFmtApmDataNasc, jPswApmSenha,
+                    jCboApmNivel, jChbApmAtivo);
     }//GEN-LAST:event_jBtnApmExcluirActionPerformed
 
     private void jBtnApmCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmCancelarActionPerformed
@@ -308,6 +315,9 @@ public class JDlgApmUsuario extends javax.swing.JDialog {
 
     private void jBtnApmConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmConfirmarActionPerformed
         // TODO add your handling code here:
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        usuarioDAO.insert( viewBean() );
+        
         Util.habilitar(false, jTxtApmId, jTxtApmNome, jTxtApmApelido, 
              jFmtApmCpf, jFmtApmDataNasc, jPswApmSenha,
              jCboApmNivel, jChbApmAtivo, jBtnApmConfirmar, jBtnApmCancelar);
@@ -320,6 +330,7 @@ public class JDlgApmUsuario extends javax.swing.JDialog {
     private void jBtnApmPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmPesquisarActionPerformed
         // TODO add your handling code here:
         JDlgApmUsuarioPesquisar jDlgApmUsuarioPesquisar= new JDlgApmUsuarioPesquisar(null, true);
+        jDlgApmUsuarioPesquisar.setTelaAnterior(this);
         jDlgApmUsuarioPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtnApmPesquisarActionPerformed
 

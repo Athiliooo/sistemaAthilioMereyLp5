@@ -7,6 +7,7 @@
 package view;
 
 import bean.ApmProduto;
+import dao.ProdutoDAO;
 import tools.Util;
 
 /**
@@ -40,7 +41,7 @@ public class JDlgApmProduto extends javax.swing.JDialog {
         jFmtApmDataValidade.setText(Util.dateToStr(apmProduto.getApmDataValidade()));     
     }
     
-    public void viewBean(){
+    public ApmProduto viewBean(){
         ApmProduto apmProduto = new ApmProduto();
         int apmId = Util.strToInt((jTxtApmId.getText()));
         apmProduto.setApmNome(jTxtApmNome.getText());
@@ -49,6 +50,7 @@ public class JDlgApmProduto extends javax.swing.JDialog {
         apmProduto.setApmValor(Util.strToDouble(jTxtApmPreco.getText()));
         apmProduto.setApmTipo(jTxtApmTipo.getText());
         apmProduto.setApmDataValidade(Util.strToDate(jFmtApmDataValidade.getText()));
+        return null;
     }
     
     /**
@@ -263,12 +265,19 @@ public class JDlgApmProduto extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnApmIncluirActionPerformed
 
     private void jBtnApmAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmAlterarActionPerformed
-        // TODO add your handling code here:
+        Util.habilitar(true, jTxtApmId, jTxtApmNome, jTxtApmMarca,
+                jTxtApmTamanho, jTxtApmPreco, jTxtApmTipo, jFmtApmDataValidade,
+                jBtnApmConfirmar, jBtnApmCancelar);
+        Util.habilitar(false, jBtnApmIncluir, jBtnApmAlterar, jBtnApmExcluir, jBtnApmPesquisar);
     }//GEN-LAST:event_jBtnApmAlterarActionPerformed
 
     private void jBtnApmExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmExcluirActionPerformed
-        // TODO add your handling code here:
-        Util.pergunta("Deseja mesmo excluir?");
+        if (Util.pergunta("Deseja mesmo excluir?") == true){
+            ProdutoDAO produtoDAO = new ProdutoDAO();
+            produtoDAO.delete( viewBean() );
+        }
+        Util.limpar(jTxtApmId, jTxtApmNome, jTxtApmMarca,
+                jTxtApmTamanho, jTxtApmPreco, jTxtApmTipo, jFmtApmDataValidade);
     }//GEN-LAST:event_jBtnApmExcluirActionPerformed
 
     private void jBtnApmCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmCancelarActionPerformed
@@ -281,12 +290,21 @@ public class JDlgApmProduto extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnApmCancelarActionPerformed
 
     private void jBtnApmConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmConfirmarActionPerformed
-        // TODO add your handling code here:
+        ProdutoDAO produtoDAO = new ProdutoDAO();
+        produtoDAO.insert( viewBean() );
+        
+        Util.habilitar(false, jTxtApmId, jTxtApmNome, jTxtApmMarca,
+                jTxtApmTamanho, jTxtApmPreco, jTxtApmTipo, jFmtApmDataValidade,
+                jBtnApmConfirmar, jBtnApmCancelar);
+        Util.habilitar(true, jBtnApmIncluir, jBtnApmAlterar, jBtnApmExcluir, jBtnApmPesquisar);
+        Util.limpar(jTxtApmId, jTxtApmNome, jTxtApmMarca,
+                jTxtApmTamanho, jTxtApmPreco, jTxtApmTipo, jFmtApmDataValidade);
     }//GEN-LAST:event_jBtnApmConfirmarActionPerformed
 
     private void jBtnApmPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmPesquisarActionPerformed
         // TODO add your handling code here:
         JDlgApmProdutoPesquisar jDlgApmProdutoPesquisar = new JDlgApmProdutoPesquisar(null, true);
+        jDlgApmProdutoPesquisar.setTelaAnterior(this);
         jDlgApmProdutoPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtnApmPesquisarActionPerformed
 

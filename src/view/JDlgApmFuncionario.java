@@ -7,6 +7,7 @@
 package view;
 
 import bean.ApmFuncionario;
+import dao.FuncionarioDAO;
 import tools.Util;
 
 /**
@@ -303,12 +304,21 @@ public class JDlgApmFuncionario extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnApmIncluirActionPerformed
 
     private void jBtnApmAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmAlterarActionPerformed
-        // TODO add your handling code here:
+        Util.habilitar(true, jTxtApmId, jTxtApmNome, jTxtApmApelido,
+                jFmtApmCpf, jFmtApmDataNascimento, jCboApmNivel, 
+                jChbApmAtivo, jPwfApmSenha, jBtnApmConfirmar, jBtnApmCancelar);
+        Util.habilitar(false, jBtnApmIncluir, jBtnApmAlterar, jBtnApmExcluir, jBtnApmPesquisar);
     }//GEN-LAST:event_jBtnApmAlterarActionPerformed
 
     private void jBtnApmExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmExcluirActionPerformed
         // TODO add your handling code here:
-        Util.pergunta("Deseja mesmo excluir?");
+        if (Util.pergunta("Deseja mesmo excluir?") == true){
+            FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+            funcionarioDAO.delete(viewBean());
+        }
+        Util.limpar(jTxtApmId, jTxtApmNome, jTxtApmApelido, 
+                jFmtApmCpf, jFmtApmDataNascimento, jCboApmNivel, 
+                jChbApmAtivo, jPwfApmSenha);
     }//GEN-LAST:event_jBtnApmExcluirActionPerformed
 
     private void jBtnApmCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmCancelarActionPerformed
@@ -320,12 +330,22 @@ public class JDlgApmFuncionario extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnApmCancelarActionPerformed
 
     private void jBtnApmConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmConfirmarActionPerformed
-        // TODO add your handling code here:
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+        funcionarioDAO.insert(viewBean());
+        
+        Util.habilitar(false, jTxtApmId, jTxtApmNome, jTxtApmApelido,
+                jFmtApmCpf, jFmtApmDataNascimento, jCboApmNivel, 
+                jChbApmAtivo, jPwfApmSenha, jBtnApmConfirmar, jBtnApmCancelar);
+        Util.habilitar(true, jBtnApmIncluir, jBtnApmAlterar, jBtnApmExcluir, jBtnApmPesquisar);
+        Util.limpar(jTxtApmId, jTxtApmNome, jTxtApmApelido, 
+                jFmtApmCpf, jFmtApmDataNascimento, jCboApmNivel, 
+                jChbApmAtivo, jPwfApmSenha);
     }//GEN-LAST:event_jBtnApmConfirmarActionPerformed
 
     private void jBtnApmPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmPesquisarActionPerformed
         // TODO add your handling code here:   
         JDlgApmFuncionarioPesquisar jDlgApmFuncionarioPesquisar =  new JDlgApmFuncionarioPesquisar(null, true);
+        jDlgApmFuncionarioPesquisar.setTelaAnterior(this);       
         jDlgApmFuncionarioPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtnApmPesquisarActionPerformed
 

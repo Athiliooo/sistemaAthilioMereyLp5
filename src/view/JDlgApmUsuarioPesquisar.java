@@ -6,6 +6,10 @@
 
 package view;
 
+import bean.ApmUsuarios;
+import dao.UsuarioDAO;
+import java.util.List;
+
 /**
  *
  * @author win10
@@ -15,10 +19,24 @@ public class JDlgApmUsuarioPesquisar extends javax.swing.JDialog {
     /**
      * Creates new form jDlgApmUsuarioPesquisar
      */
+    
+    private JDlgApmUsuario jDlgApmUsuario;
+    ControllerUsuario controllerUsuario;
+    
     public JDlgApmUsuarioPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Pesquisar Usuário");
+        controllerUsuario = new ControllerUsuario();
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        List lista = (List) usuarioDAO.listAll();
+        controllerUsuario.setList(lista);
+        jTableApmUsuario.setModel(controllerUsuario);
+    }
+    
+    public void setTelaAnterior(JDlgApmUsuario jDlgApmUsuario){
+        this.jDlgApmUsuario = jDlgApmUsuario;
     }
 
     /**
@@ -82,7 +100,9 @@ public class JDlgApmUsuarioPesquisar extends javax.swing.JDialog {
 
     private void jBtnApmOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmOkActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        ApmUsuarios apmUsuarios = controllerUsuario.getBean(jTableApmUsuario.getSelectedRow());
+        jDlgApmUsuario.beanView(apmUsuarios);
+        this.setVisible(false);
     }//GEN-LAST:event_jBtnApmOkActionPerformed
 
     /**

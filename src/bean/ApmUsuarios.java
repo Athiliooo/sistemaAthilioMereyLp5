@@ -2,6 +2,7 @@ package bean;
 // Generated 18/09/2025 15:44:13 by Hibernate Tools 3.6.0
 
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -21,7 +22,7 @@ public class ApmUsuarios  implements java.io.Serializable {
      private String apmNome;
      private String apmApelido;
      private String apmCpf;
-     private String apmDataNascimento;
+     private Date apmDataNascimento;
      private String apmSenha;
      private int apmNivel;
      private String apmAtivo;
@@ -29,7 +30,7 @@ public class ApmUsuarios  implements java.io.Serializable {
     public ApmUsuarios() {
     }
 
-    public ApmUsuarios(int apmIdUsuario, String apmNome, String apmApelido, String apmCpf, String apmDataNascimento, String apmSenha, int apmNivel, String apmAtivo) {
+    public ApmUsuarios(int apmIdUsuario, String apmNome, String apmApelido, String apmCpf, Date apmDataNascimento, String apmSenha, int apmNivel, String apmAtivo) {
        this.apmIdUsuario = apmIdUsuario;
        this.apmNome = apmNome;
        this.apmApelido = apmApelido;
@@ -84,11 +85,11 @@ public class ApmUsuarios  implements java.io.Serializable {
 
     
     @Column(name="apm_dataNascimento", nullable=false, length=45)
-    public String getApmDataNascimento() {
+    public Date getApmDataNascimento() {
         return this.apmDataNascimento;
     }
     
-    public void setApmDataNascimento(String apmDataNascimento) {
+    public void setApmDataNascimento(Date apmDataNascimento) {
         this.apmDataNascimento = apmDataNascimento;
     }
 

@@ -6,6 +6,8 @@
 
 package bean;
 
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -26,15 +28,15 @@ public class ApmFuncionario  implements java.io.Serializable {
      private String apmNome;
      private String apmApelido;
      private String apmCpf;
-     private String apmDataNascimento;
+     private Date apmDataNascimento;
      private String apmSenha;
      private int apmNivel;
-     private char apmAtivo;
+     private String apmAtivo;
 
     public ApmFuncionario() {
     }
 
-    public ApmFuncionario(int apmIdFuncionario, String apmNome, String apmApelido, String apmCpf, String apmDataNascimento, String apmSenha, int apmNivel, char apmAtivo) {
+    public ApmFuncionario(int apmIdFuncionario, String apmNome, String apmApelido, String apmCpf, Date apmDataNascimento, String apmSenha, int apmNivel, String apmAtivo) {
        this.apmIdFuncionario = apmIdFuncionario;
        this.apmNome = apmNome;
        this.apmApelido = apmApelido;
@@ -89,11 +91,11 @@ public class ApmFuncionario  implements java.io.Serializable {
 
     
     @Column(name="apm_dataNascimento", nullable=false, length=45)
-    public String getApmDataNascimento() {
+    public Date getApmDataNascimento() {
         return this.apmDataNascimento;
     }
     
-    public void setApmDataNascimento(String apmDataNascimento) {
+    public void setApmDataNascimento(Date apmDataNascimento) {
         this.apmDataNascimento = apmDataNascimento;
     }
 
@@ -119,11 +121,11 @@ public class ApmFuncionario  implements java.io.Serializable {
 
     
     @Column(name="apm_ativo", nullable=false, length=1)
-    public char getApmAtivo() {
+    public String getApmAtivo() {
         return this.apmAtivo;
     }
     
-    public void setApmAtivo(char apmAtivo) {
+    public void setApmAtivo(String apmAtivo) {
         this.apmAtivo = apmAtivo;
     }
 

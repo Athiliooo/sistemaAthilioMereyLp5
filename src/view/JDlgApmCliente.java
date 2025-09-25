@@ -7,6 +7,7 @@
 package view;
 
 import bean.ApmCliente;
+import dao.ClienteDAO;
 import tools.Util;
 
 /**
@@ -411,6 +412,9 @@ public class JDlgApmCliente extends javax.swing.JDialog {
 
     private void jBtnApmConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmConfirmarActionPerformed
         // TODO add your handling code here:
+        ClienteDAO clienteDAO = new ClienteDAO();
+        clienteDAO.insert(viewBean());
+        
         Util.habilitar(false, jTxtApmId, jTxtApmNome, jTxtApmApelido,
                 jTxtApmEmail, jPwsSenha, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
                 jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
@@ -429,7 +433,14 @@ public class JDlgApmCliente extends javax.swing.JDialog {
 
     private void jBtnApmExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmExcluirActionPerformed
         // TODO add your handling code here:
-        Util.pergunta("Deseja mesmo excluir?");
+        if (Util.pergunta("Deseja mesmo excluir?") == true){
+            ClienteDAO clienteDAO = new ClienteDAO();
+            clienteDAO.delete(viewBean());
+        }
+        Util.limpar(jTxtApmId, jTxtApmNome, jTxtApmApelido,
+                jTxtApmEmail, jPwsSenha, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
+                jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
+                jFmtApmDataNascimento, jFmtApmRg, jCboApmSexo, jChbApmAtivo);        
     }//GEN-LAST:event_jBtnApmExcluirActionPerformed
 
     private void jBtnApmCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmCancelarActionPerformed
@@ -457,6 +468,7 @@ public class JDlgApmCliente extends javax.swing.JDialog {
     private void jBtnApmPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmPesquisarActionPerformed
         // TODO add your handling code here:jTxtId.setEnabled(true);
         JDlgApmClientePesquisar jDlgApmClientePesquisar = new JDlgApmClientePesquisar(null, true);
+        jDlgApmClientePesquisar.setTelaAnterior(this);
         jDlgApmClientePesquisar.setVisible(true);
     }//GEN-LAST:event_jBtnApmPesquisarActionPerformed
 

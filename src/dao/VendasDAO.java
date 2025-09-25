@@ -6,8 +6,9 @@
 
 package dao;
 
-import bean.ApmFuncionario;
 import bean.ApmProduto;
+import bean.ApmUsuarios;
+import bean.ApmVendas;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
@@ -16,9 +17,8 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author win10
  */
-public class FuncionarioDAO extends AbstractDAO{
-    
- 
+public class VendasDAO extends AbstractDAO{
+
     @Override
     public void insert(Object object) {
         session.beginTransaction();
@@ -47,8 +47,8 @@ public class FuncionarioDAO extends AbstractDAO{
     @Override
     public Object list(int codigo) {
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(ApmFuncionario.class);
-        criteria.add(Restrictions.eq("apmIdFuncionario", codigo));
+        Criteria criteria = session.createCriteria(ApmVendas.class);
+        criteria.add(Restrictions.eq("apmIdVendas", codigo));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -57,14 +57,15 @@ public class FuncionarioDAO extends AbstractDAO{
     @Override
     public Object listAll() {
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(ApmFuncionario.class);
+        Criteria criteria = session.createCriteria(ApmVendas.class);
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
     }
     
     public static void main(String[] args) {
-        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-        funcionarioDAO.listAll();
+        VendasDAO vendasDAO = new VendasDAO();
+        vendasDAO.listAll();
     }
+    
 }

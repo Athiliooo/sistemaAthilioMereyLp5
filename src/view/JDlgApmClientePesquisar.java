@@ -6,6 +6,10 @@
 
 package view;
 
+import bean.ApmCliente;
+import dao.ClienteDAO;
+import java.util.List;
+
 /**
  *
  * @author win10
@@ -15,10 +19,23 @@ public class JDlgApmClientePesquisar extends javax.swing.JDialog {
     /**
      * Creates new form jDlgApmClientePesquisar
      */
+    private JDlgApmCliente jDlgApmCliente;
+    ControllerCliente controllerCliente;
+    
     public JDlgApmClientePesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Pesquisar Cliente");
+        controllerCliente = new ControllerCliente();
+        ClienteDAO clienteDAO = new ClienteDAO();
+        List lista = (List) clienteDAO.listAll();
+        controllerCliente.setList(lista);
+        jTableApmCliente.setModel(controllerCliente);
+    }
+    
+    public void setTelaAnterior(JDlgApmCliente jDlgApmCliente){
+        this.jDlgApmCliente = jDlgApmCliente;
     }
 
     /**
@@ -84,7 +101,9 @@ public class JDlgApmClientePesquisar extends javax.swing.JDialog {
 
     private void jBtnApmOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmOkActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        ApmCliente apmCliente = controllerCliente.getBean(jTableApmCliente.getSelectedRow());
+        jDlgApmCliente.beanView(apmCliente);
+        this.setVisible(false);
     }//GEN-LAST:event_jBtnApmOkActionPerformed
 
     /**

@@ -6,6 +6,10 @@
 
 package view;
 
+import bean.ApmProduto;
+import dao.ProdutoDAO;
+import java.util.List;
+
 /**
  *
  * @author win10
@@ -15,10 +19,23 @@ public class JDlgApmProdutoPesquisar extends javax.swing.JDialog {
     /**
      * Creates new form jDlgApmProdutoPesquisar
      */
+    
+    private JDlgApmProduto jDlgApmProduto;
+    ControllerProduto controllerProduto;
+    
     public JDlgApmProdutoPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Pesquisar Produto");
+        controllerProduto = new ControllerProduto();
+        ProdutoDAO produtoDAO = new ProdutoDAO();
+        List lista = (List) produtoDAO.listAll();
+        jTableApmProduto.setModel(controllerProduto);
+    }
+    
+    public void setTelaAnterior(JDlgApmProduto jDlgApmProduto){
+        this.jDlgApmProduto = jDlgApmProduto;
     }
 
     /**
@@ -83,7 +100,9 @@ public class JDlgApmProdutoPesquisar extends javax.swing.JDialog {
 
     private void jBtnApmOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmOkActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        ApmProduto apmProduto = controllerProduto.getBean(jTableApmProduto.getSelectedRow());
+        jDlgApmProduto.beanView(apmProduto);
+        this.setVisible(false);
     }//GEN-LAST:event_jBtnApmOkActionPerformed
 
     /**
