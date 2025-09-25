@@ -70,26 +70,6 @@
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLblApmNumeroCasa" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTxtApmNumeroCasa" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLblApmRua" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTxtApmRua" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTxtApmBairro" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLblApmBairro" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLbApmlId" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLblApmNome" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -131,6 +111,20 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLblApmEmail" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLblApmRua" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTxtApmRua" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jTxtApmBairro" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLblApmBairro" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
           </Group>
@@ -206,13 +200,11 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLblApmNumeroCasa" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLblApmRua" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLblApmBairro" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTxtApmNumeroCasa" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTxtApmRua" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTxtApmBairro" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -304,11 +296,6 @@
         <Property name="text" type="java.lang.String" value="Nome"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLblApmNumeroCasa">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Numero da Casa"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLblApmApelido">
       <Properties>
         <Property name="text" type="java.lang.String" value="Apelido"/>
@@ -373,8 +360,6 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTxtApmNumeroCasa">
     </Component>
     <Component class="javax.swing.JTextField" name="jTxtApmRua">
       <Events>

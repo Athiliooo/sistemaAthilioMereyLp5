@@ -27,7 +27,7 @@ public class ApmCliente  implements java.io.Serializable {
      private int apmIdCliente;
      private String apmNome;
      private String apmApelido;
-     private String apmSexo;
+     private char apmSexo;
      private String apmCpf;
      private String apmRg;
      private Date apmDataNascimento;
@@ -50,7 +50,7 @@ public class ApmCliente  implements java.io.Serializable {
         this.apmApelido = apmApelido;
         this.apmCpf = apmCpf;
     }
-    public ApmCliente(int apmIdCliente, String apmNome, String apmApelido, String apmSexo, String apmCpf, String apmRg, Date apmDataNascimento, String apmRua, String apmBairro, String apmCep, String apmTelefone, String apmCelular, String apmEmail, String apmAtivo, String apmSenha) {
+    public ApmCliente(int apmIdCliente, String apmNome, String apmApelido, char apmSexo, String apmCpf, String apmRg, Date apmDataNascimento, String apmRua, String apmBairro, String apmCep, String apmTelefone, String apmCelular, String apmEmail, String apmAtivo, String apmSenha) {
        this.apmIdCliente = apmIdCliente;
        this.apmNome = apmNome;
        this.apmApelido = apmApelido;
@@ -102,11 +102,11 @@ public class ApmCliente  implements java.io.Serializable {
 
     
     @Column(name="apm_sexo", length=10)
-    public String getApmSexo() {
-        return this.apmSexo;
+    public char getApmSexo() {
+        return (char) this.apmSexo;
     }
     
-    public void setApmSexo(String apmSexo) {
+    public void setApmSexo(char apmSexo) {
         this.apmSexo = apmSexo;
     }
 

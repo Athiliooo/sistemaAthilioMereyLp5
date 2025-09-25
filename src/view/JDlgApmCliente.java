@@ -6,6 +6,7 @@
 
 package view;
 
+import bean.ApmCliente;
 import tools.Util;
 
 /**
@@ -24,13 +25,26 @@ public class JDlgApmCliente extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         Util.habilitar(false, jTxtApmId, jTxtApmNome, jTxtApmApelido,
                 jTxtApmEmail, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
-                jTxtApmBairro, jTxtApmRua, jTxtApmNumeroCasa, jFmtApmCpf,
+                jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
                 jFmtApmDataNascimento, jFmtApmRg, jCboApmSexo, jChbApmAtivo,
                 jBtnApmConfirmar, jBtnApmCancelar);
         Util.limpar(jTxtApmId, jTxtApmNome, jTxtApmApelido,
                 jTxtApmEmail, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
-                jTxtApmBairro, jTxtApmRua, jTxtApmNumeroCasa, jFmtApmCpf,
+                jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
                 jFmtApmDataNascimento, jFmtApmRg, jCboApmSexo, jChbApmAtivo);
+    }
+    
+    public void beanView(ApmCliente apmCliente){
+        jTxtApmId.setText(Util.intToStr(apmCliente.getApmIdCliente()));
+        jTxtApmNome.setText(apmCliente.getApmNome());
+        jTxtApmApelido.setText(apmCliente.getApmApelido());
+        jTxtApmEmail.setText(apmCliente.getApmEmail());
+        jTxtApmCelular.setText(apmCliente.getApmCelular());
+        jTxtApmTelefone.setText(apmCliente.getApmTelefone());
+        jTxtCep.setText(apmCliente.getApmCep());
+        jTxtApmBairro.setText(apmCliente.getApmBairro());
+        jTxtApmRua.setText(apmCliente.getApmRua());;
+        jFmtApmCpf.setText((apmCliente.getApmCpf()));
     }
 
     /**
@@ -54,7 +68,6 @@ public class JDlgApmCliente extends javax.swing.JDialog {
         jLbApmlId = new javax.swing.JLabel();
         jTxtApmCelular = new javax.swing.JTextField();
         jLblApmNome = new javax.swing.JLabel();
-        jLblApmNumeroCasa = new javax.swing.JLabel();
         jLblApmApelido = new javax.swing.JLabel();
         jLblApmRua = new javax.swing.JLabel();
         jTxtApmApelido = new javax.swing.JTextField();
@@ -68,7 +81,6 @@ public class JDlgApmCliente extends javax.swing.JDialog {
         jFmtApmRg = new javax.swing.JFormattedTextField();
         jLblApmAtivo = new javax.swing.JLabel();
         jCboApmSexo = new javax.swing.JComboBox<String>();
-        jTxtApmNumeroCasa = new javax.swing.JTextField();
         jTxtApmRua = new javax.swing.JTextField();
         jTxtApmBairro = new javax.swing.JTextField();
         jTxtCep = new javax.swing.JTextField();
@@ -124,8 +136,6 @@ public class JDlgApmCliente extends javax.swing.JDialog {
         jLbApmlId.setText("Id");
 
         jLblApmNome.setText("Nome");
-
-        jLblApmNumeroCasa.setText("Numero da Casa");
 
         jLblApmApelido.setText("Apelido");
 
@@ -225,21 +235,6 @@ public class JDlgApmCliente extends javax.swing.JDialog {
                             .addComponent(jLblApmAtivo))
                         .addGap(21, 21, 21))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLblApmNumeroCasa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTxtApmNumeroCasa))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLblApmRua)
-                            .addComponent(jTxtApmRua, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTxtApmBairro)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLblApmBairro)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLbApmlId)
                             .addComponent(jLblApmNome)
@@ -272,7 +267,17 @@ public class JDlgApmCliente extends javax.swing.JDialog {
                                 .addContainerGap())))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLblApmEmail)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLblApmRua)
+                            .addComponent(jTxtApmRua, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTxtApmBairro)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLblApmBairro)
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -331,12 +336,10 @@ public class JDlgApmCliente extends javax.swing.JDialog {
                     .addComponent(jTxtApmCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLblApmNumeroCasa)
                     .addComponent(jLblApmRua)
                     .addComponent(jLblApmBairro))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTxtApmNumeroCasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTxtApmRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTxtApmBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -361,13 +364,13 @@ public class JDlgApmCliente extends javax.swing.JDialog {
         // TODO add your handling code here:
         Util.habilitar(false, jTxtApmId, jTxtApmNome, jTxtApmApelido,
                 jTxtApmEmail, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
-                jTxtApmBairro, jTxtApmRua, jTxtApmNumeroCasa, jFmtApmCpf,
+                jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
                 jFmtApmDataNascimento, jFmtApmRg, jCboApmSexo, jChbApmAtivo,
                 jBtnApmConfirmar, jBtnApmCancelar);
         Util.habilitar(true, jBtnApmIncluir, jBtnApmAlterar, jBtnApmExcluir, jBtnApmPesquisar);
         Util.limpar(jTxtApmId, jTxtApmNome, jTxtApmApelido,
                 jTxtApmEmail, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
-                jTxtApmBairro, jTxtApmRua, jTxtApmNumeroCasa, jFmtApmCpf,
+                jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
                 jFmtApmDataNascimento, jFmtApmRg, jCboApmSexo, jChbApmAtivo);
     }//GEN-LAST:event_jBtnApmConfirmarActionPerformed
 
@@ -384,7 +387,7 @@ public class JDlgApmCliente extends javax.swing.JDialog {
         // TODO add your handling code here:
         Util.habilitar(false, jTxtApmId, jTxtApmNome, jTxtApmApelido,
                 jTxtApmEmail, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
-                jTxtApmBairro, jTxtApmRua, jTxtApmNumeroCasa, jFmtApmCpf,
+                jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
                 jFmtApmDataNascimento, jFmtApmRg, jCboApmSexo, jChbApmAtivo,
                 jBtnApmConfirmar, jBtnApmCancelar);
         Util.habilitar(true, jBtnApmIncluir, jBtnApmAlterar, jBtnApmExcluir, jBtnApmPesquisar);
@@ -412,13 +415,13 @@ public class JDlgApmCliente extends javax.swing.JDialog {
         // TODO add your handling code here:
         Util.habilitar(true, jTxtApmId, jTxtApmNome, jTxtApmApelido,
                 jTxtApmEmail, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
-                jTxtApmBairro, jTxtApmRua, jTxtApmNumeroCasa, jFmtApmCpf,
+                jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
                 jFmtApmDataNascimento, jFmtApmRg, jCboApmSexo, jChbApmAtivo,
                 jBtnApmConfirmar, jBtnApmCancelar);
         Util.habilitar(false, jBtnApmIncluir, jBtnApmAlterar, jBtnApmExcluir, jBtnApmPesquisar);
         Util.limpar(jTxtApmId, jTxtApmNome, jTxtApmApelido,
                 jTxtApmEmail, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
-                jTxtApmBairro, jTxtApmRua, jTxtApmNumeroCasa, jFmtApmCpf,
+                jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
                 jFmtApmDataNascimento, jFmtApmRg, jCboApmSexo, jChbApmAtivo);
     }//GEN-LAST:event_jBtnApmIncluirActionPerformed
 
@@ -426,7 +429,7 @@ public class JDlgApmCliente extends javax.swing.JDialog {
         // TODO add your handling code here:
         Util.habilitar(true, jTxtApmId, jTxtApmNome, jTxtApmApelido,
                 jTxtApmEmail, jTxtApmCelular, jTxtApmTelefone, jTxtCep,
-                jTxtApmBairro, jTxtApmRua, jTxtApmNumeroCasa, jFmtApmCpf,
+                jTxtApmBairro, jTxtApmRua, jFmtApmCpf,
                 jFmtApmDataNascimento, jFmtApmRg, jCboApmSexo, jChbApmAtivo,
                 jBtnApmConfirmar, jBtnApmCancelar);
         Util.habilitar(false, jBtnApmIncluir, jBtnApmAlterar, jBtnApmExcluir, jBtnApmPesquisar);
@@ -496,7 +499,6 @@ public class JDlgApmCliente extends javax.swing.JDialog {
     private javax.swing.JLabel jLblApmDataNascimento;
     private javax.swing.JLabel jLblApmEmail;
     private javax.swing.JLabel jLblApmNome;
-    private javax.swing.JLabel jLblApmNumeroCasa;
     private javax.swing.JLabel jLblApmRg;
     private javax.swing.JLabel jLblApmRua;
     private javax.swing.JLabel jLblApmSexo;
@@ -507,7 +509,6 @@ public class JDlgApmCliente extends javax.swing.JDialog {
     private javax.swing.JTextField jTxtApmEmail;
     private javax.swing.JTextField jTxtApmId;
     private javax.swing.JTextField jTxtApmNome;
-    private javax.swing.JTextField jTxtApmNumeroCasa;
     private javax.swing.JTextField jTxtApmRua;
     private javax.swing.JTextField jTxtApmTelefone;
     private javax.swing.JTextField jTxtCep;
