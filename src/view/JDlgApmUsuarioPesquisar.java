@@ -18,6 +18,7 @@ public class JDlgApmUsuarioPesquisar extends javax.swing.JDialog {
     public JDlgApmUsuarioPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

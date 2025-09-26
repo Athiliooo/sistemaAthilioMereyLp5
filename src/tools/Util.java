@@ -6,6 +6,7 @@
 
 package tools;
 
+import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -39,9 +40,24 @@ public class Util {
     public static boolean pergunta(String cad) {
         JOptionPane.showConfirmDialog(null, cad);
         return true;
-}
-
-    public static void habilitar(JButton jBtnApmIncluir, JButton jBtnApmAlterar, JButton jBtnApmExcluir, JButton jBtnApmPesquisar) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    public static int strToInt(String num){
+        return Integer.parseInt(num);
+    }
+    public static String intToStr(int num) {
+        return String.valueOf(num);
+    }
+    public static double strToDouble(String num){
+        return Double.parseDouble(num);
+    }
+    public static String doubleToStr(double num){
+        return String.valueOf(num);
+    }
+    public static Date strToDate(String data){
+        return null;
+    }
+    public static String dateToStr(Date data){
+        return "";
+    }
+ 
 }

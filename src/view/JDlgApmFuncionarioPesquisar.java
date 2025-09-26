@@ -18,6 +18,7 @@ public class JDlgApmFuncionarioPesquisar extends javax.swing.JDialog {
     public JDlgApmFuncionarioPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

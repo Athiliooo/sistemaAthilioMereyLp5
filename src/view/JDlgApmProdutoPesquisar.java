@@ -18,6 +18,7 @@ public class JDlgApmProdutoPesquisar extends javax.swing.JDialog {
     public JDlgApmProdutoPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

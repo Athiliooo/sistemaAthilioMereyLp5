@@ -253,6 +253,10 @@ public class JDlgApmUsuario extends javax.swing.JDialog {
 
     private void jBtnApmAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmAlterarActionPerformed
         // TODO add your handling code here:
+        Util.habilitar(true, jTxtApmId, jTxtApmNome, jTxtApmApelido, 
+             jFmtApmCpf, jFmtApmDataNasc, jPswApmSenha,
+             jCboApmNivel, jChbApmAtivo, jBtnApmConfirmar, jBtnApmCancelar);
+        Util.habilitar(false, jBtnApmIncluir, jBtnApmAlterar, jBtnApmExcluir, jBtnApmPesquisar);
     }//GEN-LAST:event_jBtnApmAlterarActionPerformed
 
     private void jBtnApmExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmExcluirActionPerformed
@@ -270,6 +274,13 @@ public class JDlgApmUsuario extends javax.swing.JDialog {
 
     private void jBtnApmConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmConfirmarActionPerformed
         // TODO add your handling code here:
+        Util.habilitar(false, jTxtApmId, jTxtApmNome, jTxtApmApelido, 
+             jFmtApmCpf, jFmtApmDataNasc, jPswApmSenha,
+             jCboApmNivel, jChbApmAtivo, jBtnApmConfirmar, jBtnApmCancelar);
+        Util.habilitar(true, jBtnApmIncluir, jBtnApmAlterar, jBtnApmExcluir, jBtnApmPesquisar);
+        Util.limpar(jTxtApmId, jTxtApmNome, jTxtApmApelido, 
+                    jFmtApmCpf, jFmtApmDataNasc, jPswApmSenha,
+                    jCboApmNivel, jChbApmAtivo);
     }//GEN-LAST:event_jBtnApmConfirmarActionPerformed
 
     private void jBtnApmPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnApmPesquisarActionPerformed
