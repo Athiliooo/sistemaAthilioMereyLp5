@@ -27,7 +27,6 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jTxtApmNome" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jTxtCep" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -37,43 +36,27 @@
                                       <Component id="jLblApmApelido" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jTxtApmEmail" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
-                                  </Group>
                               </Group>
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jPwsSenha" alignment="1" min="-2" pref="189" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="jLblApmEmail" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="270" max="-2" attributes="0"/>
-                                              <Component id="jLblSenha" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLblApmDataNascimento" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jFmtApmDataNascimento" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jFmtApmCpf" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
-                                                  <Component id="jLblApmCpf" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLblApmRg" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jFmtApmRg" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLblApmDataNascimento" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jFmtApmDataNascimento" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jFmtApmCpf" alignment="0" pref="148" max="32767" attributes="0"/>
+                                  <Component id="jLblApmCpf" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLblApmCpfDica" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLblApmRg" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jFmtApmRg" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="145" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -84,27 +67,28 @@
                       </Group>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="jTxtCep" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLbApmlId" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLblApmNome" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTxtApmId" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
-                          <Component id="jLblApmCep" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jBtnApmIncluir" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jBtnApmAlterar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jBtnApmExcluir" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jBtnApmCancelar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jBtnApmConfirmar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jBtnApmPesquisar" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTxtApmEmail" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jPwsSenha" alignment="1" min="-2" pref="189" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLblApmEmail" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="270" max="-2" attributes="0"/>
+                                      <Component id="jLblSenha" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="161" pref="161" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="122" pref="122" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -136,6 +120,28 @@
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLbApmlId" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLblApmNome" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTxtApmId" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="jLblApmCep" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jBtnApmIncluir" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jBtnApmAlterar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jBtnApmExcluir" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jBtnApmCancelar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jBtnApmConfirmar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jBtnApmPesquisar" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -195,7 +201,9 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLblApmCpfDica" min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace pref="45" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLblApmEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLblSenha" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -238,7 +246,7 @@
                   <Component id="jBtnApmConfirmar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBtnApmPesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -438,6 +446,8 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="jPwsSenha">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLblApmCpfDica">
     </Component>
   </SubComponents>
 </Form>

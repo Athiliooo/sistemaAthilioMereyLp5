@@ -9,6 +9,8 @@ package view;
 import bean.ApmUsuarios;
 import bean.ApmUsuarios;
 import dao.UsuarioDAO;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import tools.Util;
 
 /**
@@ -23,6 +25,7 @@ public class JDlgApmUsuario extends javax.swing.JDialog {
     public JDlgApmUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        addCpfRealTimeValidation();
         setTitle("Cadastro de Usuario");
         setLocationRelativeTo(null);
         Util.habilitar(false, jTxtApmId, jTxtApmNome, jTxtApmApelido, 
@@ -64,6 +67,7 @@ public class JDlgApmUsuario extends javax.swing.JDialog {
         }
         return null;
     }    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -75,6 +79,7 @@ public class JDlgApmUsuario extends javax.swing.JDialog {
     private void initComponents() {
 
         jTextField4 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jLblApmId = new javax.swing.JLabel();
         jTxtApmId = new javax.swing.JTextField();
         jLblApmNome = new javax.swing.JLabel();
@@ -96,8 +101,11 @@ public class JDlgApmUsuario extends javax.swing.JDialog {
         jBtnApmPesquisar = new javax.swing.JButton();
         jLblApmDataNascimento = new javax.swing.JLabel();
         jFmtApmDataNasc = new javax.swing.JFormattedTextField();
+        jLblApmCpfDica = new javax.swing.JLabel();
 
         jTextField4.setText("jTextField4");
+
+        jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -173,6 +181,8 @@ public class JDlgApmUsuario extends javax.swing.JDialog {
 
         jLblApmDataNascimento.setText("Data De Nascimento");
 
+        jLblApmCpfDica.setText("\n");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -183,43 +193,54 @@ public class JDlgApmUsuario extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jPswApmSenha, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTxtApmNome))
+                                .addComponent(jTxtApmNome)
                                 .addGap(35, 35, 35))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLblApmCpf)
                                     .addComponent(jLblApmId)
                                     .addComponent(jLblApmNome)
-                                    .addComponent(jLblApmSenha)
-                                    .addComponent(jFmtApmCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTxtApmId, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLblApmApelido)
-                            .addComponent(jTxtApmApelido, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxtApmApelido, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPswApmSenha)
+                                .addGap(35, 35, 35))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLblApmCpf)
+                                    .addComponent(jLblApmSenha)
+                                    .addComponent(jFmtApmCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jCboApmNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jChbApmAtivo))
                             .addComponent(jLblApmNivel)))
-                    .addComponent(jLblApmDataNascimento)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jFmtApmDataNasc, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jFmtApmDataNasc)
+                        .addGap(377, 377, 377))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jBtnApmIncluir)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jBtnApmAlterar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jBtnApmExcluir)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnApmCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnApmConfirmar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnApmPesquisar)))
+                                .addComponent(jBtnApmExcluir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtnApmCancelar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtnApmConfirmar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtnApmPesquisar))
+                            .addComponent(jLblApmDataNascimento)
+                            .addComponent(jLblApmCpfDica, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -234,20 +255,25 @@ public class JDlgApmUsuario extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLblApmNome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTxtApmNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTxtApmNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLblApmApelido)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTxtApmApelido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLblApmCpf)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jFmtApmCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLblApmCpfDica)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLblApmSenha)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPswApmSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLblApmApelido)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTxtApmApelido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(76, 76, 76)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                         .addComponent(jLblApmNivel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -257,7 +283,7 @@ public class JDlgApmUsuario extends javax.swing.JDialog {
                 .addComponent(jLblApmDataNascimento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jFmtApmDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnApmIncluir)
                     .addComponent(jBtnApmAlterar)
@@ -334,6 +360,53 @@ public class JDlgApmUsuario extends javax.swing.JDialog {
         jDlgApmUsuarioPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtnApmPesquisarActionPerformed
 
+        private void addCpfRealTimeValidation() {
+        jFmtApmCpf.getDocument().addDocumentListener(new DocumentListener() {
+            
+            private void checkCpfStatus() {
+                String cpf = jFmtApmCpf.getText().replaceAll("[^0-9]", "");
+                int length = cpf.length();
+
+                if (length == 0) {
+                    jLblApmCpfDica.setText("Digite o CPF (11 dígitos).");
+                    jLblApmCpfDica.setForeground(new java.awt.Color(150, 150, 150)); 
+                } else if (length < 11) {
+                    int faltam = 11 - length;
+                    jLblApmCpfDica.setText("Faltam " + faltam + " dígitos para completar o CPF.");
+                    jLblApmCpfDica.setForeground(new java.awt.Color(255, 100, 0)); 
+                } else if (length == 11) {
+                    boolean valido = tools.Util.isCpfValido(cpf); 
+
+                    if (valido) {
+                        jLblApmCpfDica.setText("CPF Válido. OK!");
+                        jLblApmCpfDica.setForeground(new java.awt.Color(0, 150, 0));
+                    } else {
+                        jLblApmCpfDica.setText("CPF Inválido. Verifique os números.");
+                        jLblApmCpfDica.setForeground(new java.awt.Color(200, 0, 0)); 
+                    }
+                } else {
+                     jLblApmCpfDica.setText("Máximo de 11 dígitos atingido.");
+                     jLblApmCpfDica.setForeground(new java.awt.Color(150, 150, 150));
+                }
+            }
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                checkCpfStatus();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                checkCpfStatus();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                checkCpfStatus();
+            }
+        });
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -387,8 +460,10 @@ public class JDlgApmUsuario extends javax.swing.JDialog {
     private javax.swing.JCheckBox jChbApmAtivo;
     private javax.swing.JFormattedTextField jFmtApmCpf;
     private javax.swing.JFormattedTextField jFmtApmDataNasc;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLblApmApelido;
     private javax.swing.JLabel jLblApmCpf;
+    private javax.swing.JLabel jLblApmCpfDica;
     private javax.swing.JLabel jLblApmDataNascimento;
     private javax.swing.JLabel jLblApmId;
     private javax.swing.JLabel jLblApmNivel;

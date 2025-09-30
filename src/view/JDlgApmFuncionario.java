@@ -8,6 +8,8 @@ package view;
 
 import bean.ApmFuncionario;
 import dao.FuncionarioDAO;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import tools.Util;
 
 /**
@@ -22,6 +24,7 @@ public class JDlgApmFuncionario extends javax.swing.JDialog {
     public JDlgApmFuncionario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        addCpfRealTimeValidation();
         setTitle("Cadastro de Funcionario");
         setLocationRelativeTo(null);
         Util.habilitar(false, jTxtApmId, jTxtApmNome, jTxtApmApelido,
@@ -61,7 +64,7 @@ public class JDlgApmFuncionario extends javax.swing.JDialog {
         } else {
             apmFuncionario.setApmAtivo("N");
         }
-        return null;
+        return apmFuncionario;
     }
 
     /**
@@ -95,6 +98,7 @@ public class JDlgApmFuncionario extends javax.swing.JDialog {
         jBtnApmConfirmar = new javax.swing.JButton();
         jBtnApmPesquisar = new javax.swing.JButton();
         jBtnApmIncluir = new javax.swing.JButton();
+        jLblApmCpfDica = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -207,15 +211,18 @@ public class JDlgApmFuncionario extends javax.swing.JDialog {
                             .addComponent(jLbApmlAtivo)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLblApmNome)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTxtApmId, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(90, 90, 90)
-                                .addComponent(jFmtApmCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLbApmlId)
                                 .addGap(250, 250, 250)
-                                .addComponent(jLblApmCpf)))
+                                .addComponent(jLblApmCpf))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTxtApmId, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLblApmNome))
+                                .addGap(90, 90, 90)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jFmtApmCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(jLblApmCpfDica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -243,8 +250,13 @@ public class JDlgApmFuncionario extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTxtApmId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFmtApmCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLblApmNome)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLblApmNome))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jLblApmCpfDica, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTxtApmNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -349,6 +361,52 @@ public class JDlgApmFuncionario extends javax.swing.JDialog {
         jDlgApmFuncionarioPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtnApmPesquisarActionPerformed
 
+    private void addCpfRealTimeValidation() {
+        jFmtApmCpf.getDocument().addDocumentListener(new DocumentListener() {
+            
+            private void checkCpfStatus() {
+                String cpf = jFmtApmCpf.getText().replaceAll("[^0-9]", "");
+                int length = cpf.length();
+
+                if (length == 0) {
+                    jLblApmCpfDica.setText("Digite o CPF (11 dígitos).");
+                    jLblApmCpfDica.setForeground(new java.awt.Color(150, 150, 150)); 
+                } else if (length < 11) {
+                    int faltam = 11 - length;
+                    jLblApmCpfDica.setText("Faltam " + faltam + " dígitos para completar o CPF.");
+                    jLblApmCpfDica.setForeground(new java.awt.Color(255, 100, 0)); 
+                } else if (length == 11) {
+                    boolean valido = tools.Util.isCpfValido(cpf); 
+
+                    if (valido) {
+                        jLblApmCpfDica.setText("CPF Válido. OK!");
+                        jLblApmCpfDica.setForeground(new java.awt.Color(0, 150, 0));
+                    } else {
+                        jLblApmCpfDica.setText("CPF Inválido. Verifique os números.");
+                        jLblApmCpfDica.setForeground(new java.awt.Color(200, 0, 0)); 
+                    }
+                } else {
+                     jLblApmCpfDica.setText("Máximo de 11 dígitos atingido.");
+                     jLblApmCpfDica.setForeground(new java.awt.Color(150, 150, 150));
+                }
+            }
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                checkCpfStatus();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                checkCpfStatus();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                checkCpfStatus();
+            }
+        });
+    }
     /**
      * @param args the command line arguments
      */
@@ -406,6 +464,7 @@ public class JDlgApmFuncionario extends javax.swing.JDialog {
     private javax.swing.JLabel jLbApmlId;
     private javax.swing.JLabel jLblApmApelido;
     private javax.swing.JLabel jLblApmCpf;
+    private javax.swing.JLabel jLblApmCpfDica;
     private javax.swing.JLabel jLblApmDataNascimento;
     private javax.swing.JLabel jLblApmNivel;
     private javax.swing.JLabel jLblApmNome;

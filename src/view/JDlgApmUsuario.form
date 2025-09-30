@@ -7,6 +7,11 @@
         <Property name="text" type="java.lang.String" value="jTextField4"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
@@ -36,19 +41,13 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jPswApmSenha" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTxtApmNome" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="jTxtApmNome" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLblApmCpf" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLblApmId" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLblApmNome" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLblApmSenha" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jFmtApmCpf" alignment="0" min="-2" pref="288" max="-2" attributes="0"/>
                                   <Component id="jTxtApmId" alignment="0" min="-2" pref="285" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
@@ -57,6 +56,24 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLblApmApelido" min="-2" max="-2" attributes="0"/>
                           <Component id="jTxtApmApelido" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jPswApmSenha" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLblApmCpf" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLblApmSenha" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jFmtApmCpf" alignment="0" min="-2" pref="288" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jCboApmNivel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -65,24 +82,29 @@
                           <Component id="jLblApmNivel" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jLblApmDataNascimento" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jFmtApmDataNasc" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jFmtApmDataNasc" max="32767" attributes="0"/>
+                      <EmptySpace min="377" pref="377" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jBtnApmIncluir" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jBtnApmAlterar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jBtnApmExcluir" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jBtnApmCancelar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jBtnApmConfirmar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jBtnApmPesquisar" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jLblApmDataNascimento" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLblApmCpfDica" alignment="0" min="-2" pref="288" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jBtnApmCancelar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jBtnApmConfirmar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jBtnApmPesquisar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -102,20 +124,28 @@
                       <Component id="jLblApmNome" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTxtApmNome" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLblApmCpf" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jFmtApmCpf" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLblApmSenha" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPswApmSenha" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="jLblApmApelido" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTxtApmApelido" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="76" pref="76" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="jLblApmCpf" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jFmtApmCpf" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLblApmCpfDica" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLblApmSenha" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPswApmSenha" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace pref="129" max="32767" attributes="0"/>
                       <Component id="jLblApmNivel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -128,7 +158,7 @@
               <Component id="jLblApmDataNascimento" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jFmtApmDataNasc" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jBtnApmIncluir" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBtnApmAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -275,6 +305,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="jFmtApmDataNasc">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLblApmCpfDica">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xa;"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

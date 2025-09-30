@@ -6,6 +6,8 @@
 
 package view;
 
+import bean.ApmCliente;
+import bean.ApmVendas;
 import dao.VendasDAO;
 import tools.Util;
 
@@ -27,7 +29,19 @@ public class JDlgApmVendas extends javax.swing.JDialog {
         Util.limpar(jTxtApmIdVenda, jTxtApmIdCliente, jTxtApmIdProduto);
     }
     
+    public void beanView(ApmVendas apmVendas){
+        jTxtApmIdVenda.setText(Util.intToStr(apmVendas.getApmIdVendas()));
+        jTxtApmIdCliente.setText(Util.intToStr(apmVendas.getApmCliente()));
+        jTxtApmIdCliente.setText(Util.intToStr(apmVendas.getApmProduto()));
+    }
    
+    public ApmVendas viewBean(){
+        ApmVendas apmVendas = new ApmVendas();
+        int apmIdVenda = Util.strToInt(jTxtApmIdVenda.getText());
+        int apmIdCliente = Util.strToInt(jTxtApmIdCliente.getText());
+        int apmIdProduto = Util.strToInt(jTxtApmIdProduto.getText());
+        return null;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -214,7 +228,7 @@ public class JDlgApmVendas extends javax.swing.JDialog {
         // TODO add your handling code here:
         if (Util.pergunta("Deseja mesmo excluir?") == true){
             VendasDAO vendasDAO = new VendasDAO();
-            vendasDAO.delete(viewBean);
+           vendasDAO.delete(viewBean());
         }
     }//GEN-LAST:event_jBtnApmExcluirActionPerformed
 

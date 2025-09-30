@@ -24,19 +24,19 @@ public class ApmVendas  implements java.io.Serializable {
 
 
      private int apmIdVendas;
-     private ApmCliente apmCliente;
-     private ApmProduto apmProduto;
+     private int apmCliente;
+     private int apmProduto;
 
     public ApmVendas() {
     }
 
 	
-    public ApmVendas(int apmIdVendas, ApmCliente apmCliente, ApmProduto apmProduto) {
+    public ApmVendas(int apmIdVendas, int apmCliente, int apmProduto) {
         this.apmIdVendas = apmIdVendas;
         this.apmCliente = apmCliente;
         this.apmProduto = apmProduto;
     }
-    public ApmVendas(int apmIdVendas, ApmCliente apmCliente, ApmProduto apmProduto, Set apmVendasProdutos) {
+    public ApmVendas(int apmIdVendas, int apmCliente, int apmProduto, Set apmVendasProdutos) {
        this.apmIdVendas = apmIdVendas;
        this.apmCliente = apmCliente;
        this.apmProduto = apmProduto;
@@ -56,21 +56,21 @@ public class ApmVendas  implements java.io.Serializable {
 
 @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="apm_idCliente", nullable=false)
-    public ApmCliente getApmCliente() {
+    public int getApmCliente() {
         return this.apmCliente;
     }
     
-    public void setApmCliente(ApmCliente apmCliente) {
+    public void setApmCliente(int apmCliente) {
         this.apmCliente = apmCliente;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="apm_idProduto", nullable=false)
-    public ApmProduto getApmProduto() {
+    public int getApmProduto() {
         return this.apmProduto;
     }
     
-    public void setApmProduto(ApmProduto apmProduto) {
+    public void setApmProduto(int apmProduto) {
         this.apmProduto = apmProduto;
     }
 

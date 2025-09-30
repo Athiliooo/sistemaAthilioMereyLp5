@@ -8,6 +8,8 @@ package view;
 
 import bean.ApmCliente;
 import dao.ClienteDAO;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import tools.Util;
 
 /**
@@ -22,6 +24,7 @@ public class JDlgApmCliente extends javax.swing.JDialog {
     public JDlgApmCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        addCpfRealTimeValidation();
         setTitle("cadastro de Cliente");
         setLocationRelativeTo(null);
         Util.habilitar(false, jTxtApmId, jTxtApmNome, jTxtApmApelido,
@@ -78,7 +81,7 @@ public class JDlgApmCliente extends javax.swing.JDialog {
         } else {
             apmCliente.setApmAtivo("N");
         }
-        return null;
+        return apmCliente;
         
     }
 
@@ -127,6 +130,7 @@ public class JDlgApmCliente extends javax.swing.JDialog {
         jBtnApmAlterar = new javax.swing.JButton();
         jLblSenha = new javax.swing.JLabel();
         jPwsSenha = new javax.swing.JPasswordField();
+        jLblApmCpfDica = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -242,7 +246,6 @@ public class JDlgApmCliente extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTxtApmNome)
-                    .addComponent(jTxtCep)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -250,58 +253,46 @@ public class JDlgApmCliente extends javax.swing.JDialog {
                                     .addComponent(jTxtApmApelido)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLblApmApelido)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTxtApmEmail)
-                                        .addGap(253, 253, 253)))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(19, 19, 19))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jPwsSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLblApmEmail)
-                                                .addGap(270, 270, 270)
-                                                .addComponent(jLblSenha))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLblApmDataNascimento)
-                                                    .addComponent(jFmtApmDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jFmtApmCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLblApmCpf))))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLblApmRg)
-                                            .addComponent(jFmtApmRg, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(19, 19, 19)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLblApmDataNascimento)
+                                    .addComponent(jFmtApmDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jFmtApmCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                                    .addComponent(jLblApmCpf)
+                                    .addComponent(jLblApmCpfDica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLblApmRg)
+                                    .addComponent(jFmtApmRg, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCboApmSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLblApmSexo)
                             .addComponent(jChbApmAtivo)
                             .addComponent(jLblApmAtivo))
                         .addGap(21, 21, 21))
+                    .addComponent(jTxtCep)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLbApmlId)
-                            .addComponent(jLblApmNome)
-                            .addComponent(jTxtApmId, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLblApmCep)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jBtnApmIncluir)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jBtnApmAlterar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jBtnApmExcluir)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jBtnApmCancelar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jBtnApmConfirmar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jBtnApmPesquisar)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jTxtApmEmail)
+                                .addGap(253, 253, 253)
+                                .addGap(19, 19, 19))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jPwsSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLblApmEmail)
+                                        .addGap(270, 270, 270)
+                                        .addComponent(jLblSenha)
+                                        .addGap(161, 161, 161)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(122, 122, 122))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLblApmTelefone)
@@ -323,7 +314,26 @@ public class JDlgApmCliente extends javax.swing.JDialog {
                             .addComponent(jTxtApmBairro)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLblApmBairro)
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLbApmlId)
+                            .addComponent(jLblApmNome)
+                            .addComponent(jTxtApmId, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLblApmCep)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jBtnApmIncluir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtnApmAlterar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtnApmExcluir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtnApmCancelar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtnApmConfirmar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtnApmPesquisar)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -368,7 +378,9 @@ public class JDlgApmCliente extends javax.swing.JDialog {
                                     .addComponent(jFmtApmDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jFmtApmCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jFmtApmRg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLblApmCpfDica, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLblApmEmail)
                     .addComponent(jLblSenha))
@@ -404,7 +416,7 @@ public class JDlgApmCliente extends javax.swing.JDialog {
                     .addComponent(jBtnApmCancelar)
                     .addComponent(jBtnApmConfirmar)
                     .addComponent(jBtnApmPesquisar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(8, 8, 8))
         );
 
         pack();
@@ -496,6 +508,53 @@ public class JDlgApmCliente extends javax.swing.JDialog {
         Util.habilitar(false, jBtnApmIncluir, jBtnApmAlterar, jBtnApmExcluir, jBtnApmPesquisar);
     }//GEN-LAST:event_jBtnApmAlterarActionPerformed
 
+            private void addCpfRealTimeValidation() {
+        jFmtApmCpf.getDocument().addDocumentListener(new DocumentListener() {
+            
+            private void checkCpfStatus() {
+                String cpf = jFmtApmCpf.getText().replaceAll("[^0-9]", "");
+                int length = cpf.length();
+
+                if (length == 0) {
+                    jLblApmCpfDica.setText("Digite o CPF (11 dígitos).");
+                    jLblApmCpfDica.setForeground(new java.awt.Color(150, 150, 150)); 
+                } else if (length < 11) {
+                    int faltam = 11 - length;
+                    jLblApmCpfDica.setText("Faltam " + faltam + " dígitos para completar o CPF.");
+                    jLblApmCpfDica.setForeground(new java.awt.Color(255, 100, 0)); 
+                } else if (length == 11) {
+                    boolean valido = tools.Util.isCpfValido(cpf); 
+
+                    if (valido) {
+                        jLblApmCpfDica.setText("CPF Válido. OK!");
+                        jLblApmCpfDica.setForeground(new java.awt.Color(0, 150, 0));
+                    } else {
+                        jLblApmCpfDica.setText("CPF Inválido. Verifique os números.");
+                        jLblApmCpfDica.setForeground(new java.awt.Color(200, 0, 0)); 
+                    }
+                } else {
+                     jLblApmCpfDica.setText("Máximo de 11 dígitos atingido.");
+                     jLblApmCpfDica.setForeground(new java.awt.Color(150, 150, 150));
+                }
+            }
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                checkCpfStatus();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                checkCpfStatus();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                checkCpfStatus();
+            }
+        });
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -557,6 +616,7 @@ public class JDlgApmCliente extends javax.swing.JDialog {
     private javax.swing.JLabel jLblApmCelular;
     private javax.swing.JLabel jLblApmCep;
     private javax.swing.JLabel jLblApmCpf;
+    private javax.swing.JLabel jLblApmCpfDica;
     private javax.swing.JLabel jLblApmDataNascimento;
     private javax.swing.JLabel jLblApmEmail;
     private javax.swing.JLabel jLblApmNome;
